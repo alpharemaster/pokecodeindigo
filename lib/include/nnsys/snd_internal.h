@@ -68,7 +68,7 @@ void SND_SetTrackPitch(s32 playerNo, u32 trackBitMask, s32 pitch);
 void SND_SetTrackPan(s32 playerNo, u32 trackBitMask, s32 pan);
 void SND_SetTrackAllocatableChannel(s32 playerNo, u32 trackBitMask, u32 chBitMask);
 
-extern const s16 _0210D750[]; // volume (0-127) -> decibel
+extern const s16 SNDi_DecibelTable[0x80]; // volume (0-127) -> decibel
 
 // ---- fader (snd_fader.c)
 

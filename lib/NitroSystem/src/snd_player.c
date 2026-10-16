@@ -273,10 +273,10 @@ void NNSi_SndPlayerMain(void) {
         } else {
             s32 extDecibel, initDecibel, playerDecibel;
             NNSi_SndFaderUpdate(&player->fader);
-            extDecibel = _0210D750[player->extVolume];
-            initDecibel = _0210D750[player->initVolume];
-            playerDecibel = _0210D750[player->playerInfo->volume];
-            volume = CombineDecibels(playerDecibel, initDecibel, extDecibel, _0210D750[NNSi_SndFaderGet(&player->fader) >> 8]);
+            extDecibel = SNDi_DecibelTable[player->extVolume];
+            initDecibel = SNDi_DecibelTable[player->initVolume];
+            playerDecibel = SNDi_DecibelTable[player->playerInfo->volume];
+            volume = CombineDecibels(playerDecibel, initDecibel, extDecibel, SNDi_DecibelTable[NNSi_SndFaderGet(&player->fader) >> 8]);
             if (volume < -32768) {
                 volume = -32768;
             } else if (volume > 32767) {

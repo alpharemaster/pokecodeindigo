@@ -272,6 +272,9 @@ $(LCF): $(LSF) $(LCF_TEMPLATE)
 	$(WINE) $(MAKELCF) $(MAKELCF_FLAGS) $(LSF) $(LCF_TEMPLATE) $@
 ifeq ($(PROC),arm946e)
 	$(SED) -i '1i KEEP_SECTION\n{\n\t.exceptix\n}' $@
+	# Data nothing references but retail keeps; without it everything after shifts. One symbol per block: mwldarm
+	# rejects a FORCE_ACTIVE block with more than one
+	$(SED) -i 's/^FORCE_ACTIVE$$/FORCE_ACTIVE\n{\n\tSNDi_DecibelSquareTable\n}\nFORCE_ACTIVE\n{\n\tSNDi_PitchTable\n}\nFORCE_ACTIVE\n{\n\tNitroSdkData_Bss4D48\n}\nFORCE_ACTIVE/' $@
 	python3 tools/nitro-section-renames/patch_nitro_lcf.py $@
 	python3 tools/nitro-section-renames/patch_os_thread_lcf.py $@
 	python3 tools/nitro-section-renames/patch_os_reset_lcf.py $@

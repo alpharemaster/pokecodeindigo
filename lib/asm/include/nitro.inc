@@ -333,7 +333,6 @@
 .public _ll_mod
 .public _ll_sdiv
 .public _ll_udiv
-.public _0210D750
 .public GXi_DmaId
 .public OSi_ThreadInfo
 .public __global_destructor_chain

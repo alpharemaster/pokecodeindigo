@@ -26,11 +26,11 @@ void NNSi_SndArcStrmMain(void) {
                 if (player->isStarted) {
                     int volume;
                     NNSi_SndFaderUpdate(&player->fader);
-                    volume = _0210D750[player->initVolume];
+                    volume = SNDi_DecibelTable[player->initVolume];
                     {
                         int fadeVolume = NNSi_SndFaderGet(&player->fader) >> 8;
                         int extVolume = player->extVolume;
-                        volume = _0210D750[extVolume] + AddDecibels(_0210D750[fadeVolume], volume);
+                        volume = SNDi_DecibelTable[extVolume] + AddDecibels(SNDi_DecibelTable[fadeVolume], volume);
                     }
                     if (volume != player->volume) {
                         NNS_SndStrmSetVolume(&player->strm, volume);

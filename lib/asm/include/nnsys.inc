@@ -411,7 +411,6 @@
 .public _s32_div_f
 .public _u32_div_f
 .public FX_SinCosTable_
-.public _0210D750
 .public NNS_GfdDefaultFuncAllocTexVram
 .public NNS_GfdDefaultFuncFreeTexVram
 .public NNS_GfdDefaultFuncAllocPlttVram
