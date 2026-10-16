@@ -97,3 +97,6 @@ demo/intro/intro.narc
 data/namein.narc
 data/sbox_gra.narc
 *.NCLR
+
+# Built from gs_sound_data.base.sdat and data/sound/midi
+data/sound/gs_sound_data.sdat
